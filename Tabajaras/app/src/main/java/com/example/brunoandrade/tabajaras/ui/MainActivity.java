@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem item = menu.findItem(R.id.badge);
         MenuItemCompat.setActionView(item, R.layout.actionbar_badge_layout);
-//        MenuItemCompat.setActionView(item, R.layout.actionbar_badge_layout);
         RelativeLayout rlMenu = (RelativeLayout)   MenuItemCompat.getActionView(item);
 
         if (COUNT <= 0){
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ((TextView) rlMenu.findViewById(R.id.actionbar_notifcation_textview)).setText(String.valueOf(COUNT));
         }
         mRlMenu = rlMenu;
-
+        
         return true;
     }
 
