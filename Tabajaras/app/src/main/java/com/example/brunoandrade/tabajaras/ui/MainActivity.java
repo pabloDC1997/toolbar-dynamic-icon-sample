@@ -33,17 +33,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem item = menu.findItem(R.id.badge);
-        MenuItemCompat.setActionView(item, R.layout.actionbar_badge_layout);
+        MenuItemCompat.setActionView(item, R.layout.actionbar_menu_layout);
         RelativeLayout rlMenu = (RelativeLayout)   MenuItemCompat.getActionView(item);
 
         if (COUNT <= 0){
             ((TextView) rlMenu.findViewById(R.id.actionbar_notifcation_textview)).setVisibility(View.GONE);
         } else {
             ((TextView) rlMenu.findViewById(R.id.actionbar_notifcation_textview)).setVisibility(View.VISIBLE);
-            ((TextView) rlMenu.findViewById(R.id.actionbar_notifcation_textview)).setText(String.valueOf(COUNT));
+            if (COUNT > 99) {
+                ((TextView) rlMenu.findViewById(R.id.actionbar_notifcation_textview)).setText(String.valueOf("99+"));
+            } else {
+                ((TextView) rlMenu.findViewById(R.id.actionbar_notifcation_textview)).setText(String.valueOf(COUNT));
+            }
         }
         mRlMenu = rlMenu;
-        
+
         return true;
     }
 
@@ -53,9 +57,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (COUNT <= 0){
             ((TextView) mRlMenu.findViewById(R.id.actionbar_notifcation_textview)).setVisibility(View.GONE);
         } else {
+
             ((TextView) mRlMenu.findViewById(R.id.actionbar_notifcation_textview)).setVisibility(View.VISIBLE);
-            ((TextView) mRlMenu.findViewById(R.id.actionbar_notifcation_textview)).setText(String.valueOf(COUNT));
+            if (COUNT > 99) {
+                ((TextView) mRlMenu.findViewById(R.id.actionbar_notifcation_textview)).setText(String.valueOf("99+"));
+            } else {
+                ((TextView) mRlMenu.findViewById(R.id.actionbar_notifcation_textview)).setText(String.valueOf(COUNT));
+            }
+
         }
     }
-
 }
